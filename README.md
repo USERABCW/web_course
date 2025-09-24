@@ -203,23 +203,23 @@ project/
 
 CXX = g++
 CXXFLAGS = -std=c++11 -pthread -Wall -O2
-TARGETS = tcp_server tcp_client
+TARGETS = server client
 
 all: $(TARGETS)
 
-tcp_server: tcp_server.cpp
+server: server.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-tcp_client: tcp_client.cpp
+client: client.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
 	rm -f $(TARGETS) *.o
 
-run-server: tcp_server
+run-server: server
 	./tcp_server 8888
 
-run-client: tcp_client
+run-client: client
 	./tcp_client 127.0.0.1 8888
 
 test-file:
